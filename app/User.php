@@ -27,6 +27,16 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function shop()
+    {
+        return $this->hasOne(User::class);
+    }
+
+    public function deals()
+    {
+        return $this->hasMany(Deal::class);
+    }
+
     public function roles()
     {
         return $this->belongsToMany(Role::class);
